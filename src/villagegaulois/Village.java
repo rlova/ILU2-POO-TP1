@@ -9,10 +9,13 @@ public class Village {
 	private Gaulois[] villageois;
 	private int nbVillageois = 0;
 	private Marche marche;
+	private static int nbEtal;
 
-	public Village(String nom, int nbVillageoisMaximum) {
+	public Village(String nom, int nbVillageoisMaximum,int nbEtal) {
 		this.nom = nom;
 		villageois = new Gaulois[nbVillageoisMaximum];
+		this.nbEtal = nbEtal;
+		Marche marche = new Marche(nbVillageoisMaximum);
 	}
 
 	public String getNom() {
@@ -58,9 +61,12 @@ public class Village {
 		return chaine.toString();
 	}
 	
-	public static class Marche() {
+	//public String installerVendeur(Gaulois vendeur, String produit, int nbProduit) {
+		
+//	}
+	
+	public static class Marche {
 		private static Etal[] etal;
-		private static int nbEtal;
 		private int nbEtalVide = 0;
 
 		public Marche(int nbEtal) {
