@@ -61,9 +61,11 @@ public class Village {
 		return chaine.toString();
 	}
 	
-	//public String installerVendeur(Gaulois vendeur, String produit, int nbProduit) {
-		
-//	}
+	public String installerVendeurs(Gaulois vendeur, String produit, int nbProduit) {
+		StringBuilder chaine = new StringBuilder();
+		chaine.append("Le vendeur a été installer");
+		return produit;+
+	}
 	
 	public static class Marche {
 		private static Etal[] etal;
@@ -105,6 +107,7 @@ public class Village {
 				}
 				return null;
 			}
+			return null;
 		}
 		
 		private String afficherMarche() {
