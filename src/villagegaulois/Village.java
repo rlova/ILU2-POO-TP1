@@ -101,6 +101,10 @@ public class Village {
 		return chaine.toString();
 	}
 	
+	public String afficherMarche() {
+		return marche.afficherMarche();
+	}
+	
 	public static class Marche {
 		private Etal[] etals;
 		
