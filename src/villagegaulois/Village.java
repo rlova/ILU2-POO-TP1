@@ -61,27 +61,26 @@ public class Village {
 		return chaine.toString();
 	}
 	
-	public String installerVendeurs(Gaulois vendeur, String produit, int nbProduit) {
+	public String installerVendeur(Gaulois vendeur, String produit, int nbProduit) {
 		StringBuilder chaine = new StringBuilder();
-		chaine.append(vendeur).append(" cherche un endroit pour vender").append(nbProduit).append(produit);
+		chaine.append(vendeur.getNom() + " cherche un endroit pour vendre " + nbProduit + " " + produit + "\n");
 		int indiceEtal = 1;
-		marche.utiliserEtal(indiceEtal, vendeur, produit, nbProduit);
-		chaine.append("Le vendeur").append(vendeur).append(" vend des ").append("fleurs ").append("à l'étal n° ").append(indiceEtal);
+		marche.utiliserEtal(1, vendeur, produit, nbProduit);
+		chaine.append("Le vendeur " + vendeur.getNom() + " vend des " + produit + " à l'etal n° " + indiceEtal + "\n");
 		return chaine.toString();
 	}
 	
 	public String rechercherVendeursProduit(String produit) {
 		StringBuilder chaine = new StringBuilder();
 		Etal[] etalsProduit = marche.trouverEtals(produit);
-		Etal etal = new Etal();
 		if (etalsProduit.length==0) {
-			chaine.append("Il n'y a pas de vendeur qui propose").append(produit).append("au marché.");
+			chaine.append("Il n'y a pas de vendeur qui propose " + produit + " au marché.\n");
 		} else if (etalsProduit.length==1) {
-			chaine.append("Seul le vendeur "+ etal.getVendeur().getNom() + " propose des ").append(produit).append("au marché");
+			chaine.append("Seul le vendeur "+ getNom() + " propose des " + produit + " au marché");
 		} else {
-			chaine.append("Les vendeurs qui proposent des ").append(produit).append("sont :\n");
+			chaine.append("Les vendeurs qui proposent des " + produit + " sont :\n");
 			for (int i=0; i<etalsProduit.length; i++) {
-				chaine.append(" - " + etal.getVendeur().getNom() + "\n");
+				chaine.append(" - " + getNom() + "\n");
 			}
 		}
 		return chaine.toString();
@@ -97,7 +96,7 @@ public class Village {
 		if (etal!=null) {
 			etal.libererEtal();
 		}
-		chaine.append("Le vendeur").append(vendeur).append(" quitte son étal, il a vendu " ).append(marche.etals.length).append("de... parmis les ").append(marche.etals.length).append(" qu'il voulait vendre\n");
+		chaine.append("Le vendeur" + vendeur.getNom() + " quitte son étal, il a vendu " + marche.etals.length + " de... parmis les " + marche.etals.length + " qu'il voulait vendre\n");
 		return chaine.toString();
 	}
 	
@@ -170,7 +169,7 @@ public class Village {
 				}
 			}
 			if (nbEtalVide>0) {
-				chaine.append("Il reste ").append(nbEtalVide).append(" etals non utilis�s dans le march�.\n");
+				chaine.append("Il reste " + nbEtalVide + " etals non utilis�s dans le marche.\n");
 			}
 			return chaine.toString();
 		}
