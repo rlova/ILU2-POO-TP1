@@ -169,7 +169,7 @@ public class Village {
 				}
 			}
 			if (nbEtalVide>0) {
-				chaine.append("Il reste " + nbEtalVide + " etals non utilis�s dans le marche.\n");
+				chaine.append("Il reste " + nbEtalVide + " etals non utilises dans le marche.\n");
 			}
 			return chaine.toString();
 		}
