@@ -50,6 +50,7 @@ public class Village {
 		if (chef==null) {
 			throw new VillageSansChefException("Le village n'a pas de chef");
 		}
+//		VillageSansException c'est une classe qui genere l'exception
 		StringBuilder chaine = new StringBuilder();
 		if (nbVillageois < 1) {
 			chaine.append("Il n'y a encore aucun habitant au village du chef "

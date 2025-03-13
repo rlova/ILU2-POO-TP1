@@ -49,6 +49,8 @@ public class Etal {
 //	}
 	public String libererEtal() throws IllegalStateException {
 		StringBuilder chaine = new StringBuilder();
+//		creer un try catch pour l'exception
+//		try catch : generer l'exception
 	    if (!etalOccupe) {
 	        throw new IllegalStateException("L'etal n'est pas occupe");
 	    }
@@ -85,8 +87,9 @@ public class Etal {
 		}
 		if (!etalOccupe) {
 			throw new IllegalStateException("L'etal doit etre occupe");
-		}
+		}	
 //		if (etalOccupe) {
+//		tout ca c'est un try catch
 			StringBuilder chaine = new StringBuilder();
 			chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
 					+ " " + produit + " à " + vendeur.getNom());
