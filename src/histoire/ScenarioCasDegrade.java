@@ -3,6 +3,7 @@ package histoire;
 import personnages.Gaulois;
 import villagegaulois.Etal;
 import villagegaulois.Village;
+import villagegaulois.VillageSansChefException;
 
 public class ScenarioCasDegrade {
 	public static void main(String[] args) {
@@ -10,7 +11,8 @@ public class ScenarioCasDegrade {
 			Etal etal = new Etal();
 			etal.acheterProduit(1, null);
 		} catch (NullPointerException e) {
-			System.out.println("L'acheteur ne doit pas etre null");
+			e.printStackTrace();
+//			System.out.println("L'acheteur ne doit pas etre null");
 		}
 		try {
 	        Etal etal = new Etal();
@@ -24,6 +26,12 @@ public class ScenarioCasDegrade {
 			etal.libererEtal();
 		} catch (IllegalStateException e) {
 			System.out.println("L'etal doit etre occupe");
+		}
+		try {
+			Village village = new Village("Irreductibles", 4,3);
+			village.afficherVillageois();
+		} catch (VillageSansChefException e) {
+			System.out.println("Il doit y avoir un chef dans le village");
 		}
 	}
 }
