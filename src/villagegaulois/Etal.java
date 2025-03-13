@@ -48,15 +48,24 @@ public class Etal {
 //		return chaine.toString();
 //	}
 	public String libererEtal() throws IllegalStateException {
+		StringBuilder chaine = new StringBuilder();
 	    if (!etalOccupe) {
 	        throw new IllegalStateException("L'etal n'est pas occupe");
 	    }
-	    this.etalOccupe = false;
+	    chaine.append(
+				"Le vendeur " + vendeur.getNom() + " quitte son étal, ");
+		int produitVendu = quantiteDebutMarche - quantite;
+		if (produitVendu > 0) {
+			chaine.append(
+					"il a vendu " + produitVendu + " parmi " + produit + ".\n");
+		} else {
+			chaine.append("il n'a malheureusement rien vendu.\n");
+		}
 	    this.vendeur = null;
 	    this.produit = null;
 	    this.quantiteDebutMarche = 0;
 	    this.quantite = 0;
-	    return "";
+		return chaine.toString();
 	}
 
 	public String afficherEtal() {
