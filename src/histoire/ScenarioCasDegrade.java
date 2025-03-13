@@ -19,19 +19,22 @@ public class ScenarioCasDegrade {
 	        Gaulois obelix = new Gaulois("Obelix", 2);
 	        etal.acheterProduit(-1, obelix);
 	    } catch (IllegalArgumentException e) {
-	        System.out.println("La quantite doit etre positive");
+			e.printStackTrace();
+//	        System.out.println("La quantite doit etre positive");
 	    }
 		try {
 			Etal etal = new Etal();
 			etal.libererEtal();
 		} catch (IllegalStateException e) {
-			System.out.println("L'etal doit etre occupe");
+			e.printStackTrace();
+//			System.out.println("L'etal doit etre occupe");
 		}
 		try {
-			Village village = new Village("Irreductibles", 4,3);
+			Village village = new Village("Les Villages", 4,3);
 			village.afficherVillageois();
 		} catch (VillageSansChefException e) {
-			System.out.println("Il doit y avoir un chef dans le village");
+			e.printStackTrace();
+//			System.out.println("Il doit y avoir un chef dans le village");
 		}
 	}
 }
