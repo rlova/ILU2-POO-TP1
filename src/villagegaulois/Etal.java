@@ -100,7 +100,6 @@ public class Etal {
 			}
 			return chaine.toString();
 //		}
-//		return "";
 	}
 
 	public boolean contientProduit(String produit) {
