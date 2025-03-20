@@ -48,12 +48,13 @@ public class Etal {
 //		return chaine.toString();
 //	}
 	public String libererEtal() throws IllegalStateException {
-		StringBuilder chaine = new StringBuilder();
 //		creer un try catch pour l'exception
 //		try catch : generer l'exception
 	    if (!etalOccupe) {
 	        throw new IllegalStateException("L'etal n'est pas occupe");
 	    }
+	    etalOccupe = false;
+		StringBuilder chaine = new StringBuilder();
 	    chaine.append(
 				"Le vendeur " + vendeur.getNom() + " quitte son étal, ");
 		int produitVendu = quantiteDebutMarche - quantite;
@@ -63,10 +64,6 @@ public class Etal {
 		} else {
 			chaine.append("il n'a malheureusement rien vendu.\n");
 		}
-	    this.vendeur = null;
-	    this.produit = null;
-	    this.quantiteDebutMarche = 0;
-	    this.quantite = 0;
 		return chaine.toString();
 	}
 
