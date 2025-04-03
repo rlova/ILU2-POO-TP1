@@ -29,6 +29,7 @@ public class Etal {
 	    if (!etalOccupe) {
 	        throw new IllegalStateException("L'etal n'est pas occupe");
 	    }
+	    // tout ça c'est un try catch
 	    etalOccupe = false;
 		StringBuilder chaine = new StringBuilder();
 	    chaine.append(
@@ -61,6 +62,7 @@ public class Etal {
 		if (!etalOccupe) {
 			throw new IllegalStateException("L'etal doit etre occupe");
 		}	
+		// tout ça c'est un try catch
 		StringBuilder chaine = new StringBuilder();
 		chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
 				+ " " + produit + " Ã  " + vendeur.getNom());
