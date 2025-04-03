@@ -48,7 +48,6 @@ public class Village {
 		if (chef==null) {
 			throw new VillageSansChefException("Le village n'a pas de chef");
 		}
-//		VillageSansException c'est une classe qui genere l'exception
 		StringBuilder chaine = new StringBuilder();
 		if (nbVillageois < 1) {
 			chaine.append("Il n'y a encore aucun habitant au village du chef "
@@ -98,12 +97,8 @@ public class Village {
 	}
 	
 	public String partirVendeur(Gaulois vendeur) {
-		StringBuilder chaine = new StringBuilder();
 		Etal etal = rechercherEtal(vendeur);
-		if (etal!=null) {
-			chaine.append(etal.libererEtal());
-		}
-		return chaine.toString();
+		return etal.libererEtal();
 	}
 	
 	public String afficherMarche() {
@@ -140,6 +135,7 @@ public class Village {
 			return -1;
 		}
 		
+		//tableau avec tous les étals qui vendent le produit
 		public Etal[] trouverEtals(String produit) {
 			int nbr_Etal_occupe = 0;
 			for (int i=0; i<etals.length; i++) {
