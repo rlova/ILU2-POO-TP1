@@ -11,30 +11,30 @@ public class ScenarioCasDegrade {
 			Etal etal = new Etal();
 			etal.acheterProduit(1, null);
 		} catch (NullPointerException e) {
+			System.out.println("L'acheteur ne doit pas etre null");
 			e.printStackTrace();
-//			System.out.println("L'acheteur ne doit pas etre null");
 		}
 		try {
 	        Etal etal = new Etal();
-	        Gaulois obelix = new Gaulois("Obelix", 2);
-	        etal.acheterProduit(-1, obelix);
+	        Gaulois acheteur = new Gaulois("Acheteur", 2);
+	        etal.acheterProduit(-1, acheteur);
 	    } catch (IllegalArgumentException e) {
-			e.printStackTrace();
-//	        System.out.println("La quantite doit etre positive");
+	        System.out.println("L'achat n'a pas été effectué");
+	    	e.printStackTrace();
 	    }
 		try {
 			Etal etal = new Etal();
 			etal.libererEtal();
 		} catch (IllegalStateException e) {
+			System.out.println("L'etal ne comporte pas de vendeur");
 			e.printStackTrace();
-//			System.out.println("L'etal doit etre occupe");
 		}
 		try {
-			Village village = new Village("Les Villages", 4,3);
+			Village village = new Village("Village", 4,3);
 			village.afficherVillageois();
 		} catch (VillageSansChefException e) {
+			System.out.println("Il doit y avoir un chef dans le village");
 			e.printStackTrace();
-//			System.out.println("Il doit y avoir un chef dans le village");
 		}
 	}
 }
