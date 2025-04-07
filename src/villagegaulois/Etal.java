@@ -29,7 +29,7 @@ public class Etal {
 	    if (!etalOccupe) {
 	        throw new IllegalStateException("L'etal n'est pas occupe");
 	    }
-	    // tout ça c'est un try catch
+	    // tout ï¿½a c'est un try catch
 	    etalOccupe = false;
 		StringBuilder chaine = new StringBuilder();
 	    chaine.append(
@@ -46,10 +46,10 @@ public class Etal {
 
 	public String afficherEtal() {
 		if (etalOccupe) {
-			return "L'étal de " + vendeur.getNom() + " est garni de " + quantite
+			return "L'ï¿½tal de " + vendeur.getNom() + " est garni de " + quantite
 					+ " " + produit + "\n";
 		}
-		return "L'étal est libre";
+		return "L'ï¿½tal est libre";
 	}
 
 	public String acheterProduit(int quantiteAcheter, Gaulois acheteur) throws NullPointerException, IllegalArgumentException {
@@ -62,7 +62,7 @@ public class Etal {
 		if (!etalOccupe) {
 			throw new IllegalStateException("L'etal doit etre occupe");
 		}	
-		// tout ça c'est un try catch
+		// tout ï¿½a c'est un try catch
 		StringBuilder chaine = new StringBuilder();
 		chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
 				+ " " + produit + " Ã  " + vendeur.getNom());
@@ -84,6 +84,33 @@ public class Etal {
 					+ vendeur.getNom() + "\n");
 		}
 		return chaine.toString();
+		/*try {
+			StringBuilder chaine = new StringBuilder();
+			chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
+					+ " " + produit + " Ã  " + vendeur.getNom());
+			if (quantite == 0) {
+				chaine.append(", malheureusement il n'y en a plus !");
+				quantiteAcheter = 0;
+			}
+			if (quantiteAcheter > quantite) {
+				chaine.append(", comme il n'y en a plus que " + quantite + ", "
+						+ acheteur.getNom() + " vide l'Ã©tal de "
+						+ vendeur.getNom() + ".\n");
+				quantiteAcheter = quantite;
+				quantite = 0;
+			}
+			if (quantite != 0) {
+				quantite -= quantiteAcheter;
+				chaine.append(". " + acheteur.getNom()
+						+ ", est ravi de tout trouver sur l'Ã©tal de "
+						+ vendeur.getNom() + "\n");
+			}
+			return chaine.toString();
+		} catch (Exception e) {
+			StringBuilder chaine = new StringBuilder();
+			chaine.append("Il y a une exception");
+			e.printStackTrace();
+		}*/
 	}
 
 	public boolean contientProduit(String produit) {
