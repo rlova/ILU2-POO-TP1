@@ -29,19 +29,22 @@ public class Etal {
 	    if (!etalOccupe) {
 	        throw new IllegalStateException("L'etal n'est pas occupe");
 	    }
-	    // tout �a c'est un try catch
-	    etalOccupe = false;
-		StringBuilder chaine = new StringBuilder();
-	    chaine.append(
-				"Le vendeur " + vendeur.getNom() + " quitte son étal, ");
-		int produitVendu = quantiteDebutMarche - quantite;
-		if (produitVendu > 0) {
-			chaine.append(
-					"il a vendu " + produitVendu + " parmi " + produit + ".\n");
-		} else {
-			chaine.append("il n'a malheureusement rien vendu.\n");
-		}
-		return chaine.toString();
+	    try {
+		    etalOccupe = false;
+			StringBuilder chaine = new StringBuilder();
+		    chaine.append(
+					"Le vendeur " + vendeur.getNom() + " quitte son étal, ");
+			int produitVendu = quantiteDebutMarche - quantite;
+			if (produitVendu > 0) {
+				chaine.append(
+						"il a vendu " + produitVendu + " parmi " + produit + ".\n");
+			} else {
+				chaine.append("il n'a malheureusement rien vendu.\n");
+			}
+			return chaine.toString();
+	    } catch (Exception e) {
+	    	throw new IllegalStateException("Erreur lors de la libération de l'étal", e);
+	    }
 	}
 
 	public String afficherEtal() {
@@ -62,29 +65,7 @@ public class Etal {
 		if (!etalOccupe) {
 			throw new IllegalStateException("L'etal doit etre occupe");
 		}	
-		// tout �a c'est un try catch
-		StringBuilder chaine = new StringBuilder();
-		chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
-				+ " " + produit + " à " + vendeur.getNom());
-		if (quantite == 0) {
-			chaine.append(", malheureusement il n'y en a plus !");
-			quantiteAcheter = 0;
-		}
-		if (quantiteAcheter > quantite) {
-			chaine.append(", comme il n'y en a plus que " + quantite + ", "
-					+ acheteur.getNom() + " vide l'étal de "
-					+ vendeur.getNom() + ".\n");
-			quantiteAcheter = quantite;
-			quantite = 0;
-		}
-		if (quantite != 0) {
-			quantite -= quantiteAcheter;
-			chaine.append(". " + acheteur.getNom()
-					+ ", est ravi de tout trouver sur l'étal de "
-					+ vendeur.getNom() + "\n");
-		}
-		return chaine.toString();
-		/*try {
+		try {
 			StringBuilder chaine = new StringBuilder();
 			chaine.append(acheteur.getNom() + " veut acheter " + quantiteAcheter
 					+ " " + produit + " à " + vendeur.getNom());
@@ -107,10 +88,8 @@ public class Etal {
 			}
 			return chaine.toString();
 		} catch (Exception e) {
-			StringBuilder chaine = new StringBuilder();
-			chaine.append("Il y a une exception");
-			e.printStackTrace();
-		}*/
+			throw new IllegalStateException("Erreur lors de l'achat du produit", e);
+		}
 	}
 
 	public boolean contientProduit(String produit) {
